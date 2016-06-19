@@ -32,7 +32,7 @@ zip_file <- "https://d396qusza40orc.cloudfront.net/exdata/data/household_power_c
 download_unzip(zip_file, "data", "household_power_consumptions.zip")
 
 ### Reading data
-consumptions <- read.csv(
+consumptions <- read.table(
   "data/household_power_consumption.txt", 
   sep = ";",
   header = TRUE,
@@ -40,6 +40,7 @@ consumptions <- read.csv(
 )
 
 # Converting columns to proper classes
+consumptions$DateTime <- dmy_hms(paste(consumptions$Date, consumptions$Time))
 consumptions$Date <- dmy(consumptions$Date)
 consumptions$Time <- hms(consumptions$Time)
 
