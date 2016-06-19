@@ -8,6 +8,8 @@ png(filename = "plot4.png",
 
 par(mfrow=c(2, 2), mar=c(4.1, 4.1, 3.1, 3.1), oma=c(1, 1, 0, 0))
 
+### Draw graphs
+
 with(consumptions, plot(
   DateTime, 
   Global_active_power, 
@@ -65,4 +67,3 @@ with(consumptions, plot(
 
 ### Flush PNG device to disk
 dev.off()
-
